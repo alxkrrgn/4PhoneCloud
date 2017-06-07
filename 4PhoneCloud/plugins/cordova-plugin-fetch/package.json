@@ -1,0 +1,95 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "https://github.com/aporat/cordova-plugin-fetch.git",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "https://github.com/aporat/cordova-plugin-fetch.git",
+        "spec": "git+https://github.com/aporat/cordova-plugin-fetch.git",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:aporat/cordova-plugin-fetch.git",
+          "sshUrl": "git+ssh://git@github.com/aporat/cordova-plugin-fetch.git",
+          "httpsUrl": "git+https://github.com/aporat/cordova-plugin-fetch.git",
+          "gitUrl": "git://github.com/aporat/cordova-plugin-fetch.git",
+          "shortcut": "github:aporat/cordova-plugin-fetch",
+          "directUrl": "https://raw.githubusercontent.com/aporat/cordova-plugin-fetch/master/package.json"
+        }
+      },
+      "/Applications/PhoneGap-Projects/4PhoneCloud/node_modules"
+    ]
+  ],
+  "_from": "git+https://github.com/aporat/cordova-plugin-fetch.git",
+  "_id": "cordova-plugin-fetch@1.0.0",
+  "_inCache": true,
+  "_location": "/cordova-plugin-fetch",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "https://github.com/aporat/cordova-plugin-fetch.git",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "https://github.com/aporat/cordova-plugin-fetch.git",
+    "spec": "git+https://github.com/aporat/cordova-plugin-fetch.git",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:aporat/cordova-plugin-fetch.git",
+      "sshUrl": "git+ssh://git@github.com/aporat/cordova-plugin-fetch.git",
+      "httpsUrl": "git+https://github.com/aporat/cordova-plugin-fetch.git",
+      "gitUrl": "git://github.com/aporat/cordova-plugin-fetch.git",
+      "shortcut": "github:aporat/cordova-plugin-fetch",
+      "directUrl": "https://raw.githubusercontent.com/aporat/cordova-plugin-fetch/master/package.json"
+    }
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/aporat/cordova-plugin-fetch.git#e2d0d64af0c0355bb693314968405c81092197bd",
+  "_shasum": "48a0f768a76018759e1248b438630d15bfe68e9f",
+  "_shrinkwrap": null,
+  "_spec": "https://github.com/aporat/cordova-plugin-fetch.git",
+  "_where": "/Applications/PhoneGap-Projects/4PhoneCloud/node_modules",
+  "author": {
+    "name": "Adar Porat"
+  },
+  "bugs": {
+    "url": "https://github.com/aporat/cordova-plugin-fetch/issues"
+  },
+  "cordova": {
+    "id": "phonegap-plugin-fetch",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "dependencies": {},
+  "description": "HTTP networking plugin that brings the fetch() standard to Cordova",
+  "devDependencies": {},
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "gitHead": "e2d0d64af0c0355bb693314968405c81092197bd",
+  "homepage": "https://github.com/aporat/cordova-plugin-fetch#readme",
+  "keywords": [
+    "ecosystem:cordova",
+    "ecosystem:phonegap",
+    "cordova-ios"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-fetch",
+  "optionalDependencies": {},
+  "readme": "# cordova-plugin-fetch\n\nHTTP networking plugin that brings the [whatwg fetch spec](https://fetch.spec.whatwg.org/) standard to Cordova\n\n# Features\n\n- Consistent with the `window.fetch` API based on the [whatwg fetch spec](https://fetch.spec.whatwg.org/)\n- Supports iOS and Android\n- Allows cross origin requests and ignores content security policy\n- Allows all type of headers (including access to ```Set-Cookie``` and ```User-Agent```)\n\n# License\n\nMIT\n\n## Installation\n\nThe plugin conforms to the Cordova plugin specification, it can be installed\nusing the Cordova / Phonegap command line interface.\n\n    phonegap plugin add https://github.com/aporat/cordova-plugin-fetch.git\n\n    cordova plugin add https://github.com/aporat/cordova-plugin-fetch.git\n\n## Usage\n\nThe cordovaFetch function supports any HTTP method. We'll focus on GET and POST example requests.\n\n### HTML\n\n```javascript\ncordovaFetch('/users.html')\n  .then(function(response) {\n    return response.text()\n  }).then(function(body) {\n    document.body.innerHTML = body\n  })\n```\n\n### JSON\n\n```javascript\ncordovaFetch('/users.json')\n  .then(function(response) {\n    return response.json()\n  }).then(function(json) {\n    console.log('parsed json', json)\n  }).catch(function(ex) {\n    console.log('parsing failed', ex)\n  })\n```\n\n### Setting Custom User Agent\n\n```javascript\ncordovaFetch('/users.json', {\n  method : 'GET',\n  headers: {\n    'User-Agent': 'CordovaFetch 1.0.0'\n  },\n})\n```\n\n### Accessing Response Headers / Cookies\n\n```javascript\ncordovaFetch('/users.json')\n.then(function(response) {\n  console.log(res.headers['Set-Cookie']);\n})\n```\n\n### Post form\n\n```javascript\nvar form = document.querySelector('form')\n\ncordovaFetch('/users', {\n  method: 'POST',\n  body: new FormData(form)\n})\n```\n\n### Post JSON\n\n```javascript\ncordovaFetch('/users.json', {\n  method: 'POST',\n  headers: {\n    'Accept': 'application/json',\n    'Content-Type': 'application/json'\n  },\n  body: JSON.stringify({\n    name: 'Hubot',\n    login: 'hubot',\n  })\n})\n```\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/aporat/cordova-plugin-fetch.git"
+  },
+  "version": "1.0.0"
+}
